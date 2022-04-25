@@ -1,4 +1,4 @@
-from Codes.zcxv20220425_132738 import SyncMapX
+from Codes.sigma20220425_140624 import SyncMapX
 
 # ---------------don't revised belowed
 from .GraphWalkTest import GraphWalkTest
@@ -16,6 +16,7 @@ def normal_test():
         start = time.time()
         score = []
         for i in range(10):  # TODO
+            print(problem, "   ", i)
             task = GraphWalkTest(10, problem_path+"/"+problem)
             model = SyncMapX(task.getOutputSize())
             for i in range(10):  # TODO
