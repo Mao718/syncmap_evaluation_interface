@@ -7,12 +7,12 @@ from scipy.spatial import distance
 from datetime import datetime
 from sklearn.metrics.cluster import normalized_mutual_info_score
 
-
+print("hahaha I'm new")
 class SyncMapX:
 
     def __init__(self, input_size, dimensions=5, adaptation_rate=0.01, noise=False):
 
-        self.name = "SyncMap"
+        self.name = "SyncMapX"
         self.organized = False
         self.space_size = 10
         self.dimensions = dimensions
@@ -105,7 +105,7 @@ class SyncMapX:
             #     else:
             #         self.fps += 1
 
-            self.syncmap_history.append(self.syncmap)
+            #self.syncmap_history.append(self.syncmap)
 
     def input(self, x):
 
@@ -419,3 +419,4 @@ class SyncMapX:
     def evaluation(self, true_label):
         label = self.organize()
         return normalized_mutual_info_score(label, true_label)
+

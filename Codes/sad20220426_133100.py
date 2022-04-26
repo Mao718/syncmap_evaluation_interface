@@ -8,7 +8,7 @@ from datetime import datetime
 from sklearn.metrics.cluster import normalized_mutual_info_score
 
 print("hahaha I'm new")
-class SyncMapXzxcv:
+class SyncMapX:
 
     def __init__(self, input_size, dimensions=5, adaptation_rate=0.01, noise=False):
 
@@ -105,7 +105,7 @@ class SyncMapXzxcv:
             #     else:
             #         self.fps += 1
 
-            self.syncmap_history.append(self.syncmap)
+            #self.syncmap_history.append(self.syncmap)
 
     def input(self, x):
 

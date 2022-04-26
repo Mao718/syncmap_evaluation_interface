@@ -2,7 +2,7 @@ import crud.crud as crud
 import document.schemas as schemas
 import datetime
 from sqlalchemy.orm import Session
-from fastapi import File
+from fastapi import File, HTTPException
 import importlib
 import json
 
@@ -52,4 +52,14 @@ def revised_code(testing_code: str, author: schemas.code_author):
 def test():
 
     import service.testing as testing
-    return json.dumps(testing.normal_test(), default=dumper, indent=2)
+    return json.dumps(testing.normal_test_muti(), default=dumper, indent=2)
+
+
+def testing_package(author: schemas.code_author, db: Session):
+    revised_code(author.file_path, author)
+    try:
+        socre = test()
+    except:
+        raise HTTPException(status_code=404, detail="code error")
+    author.score = socre
+    save_data(author, db)
