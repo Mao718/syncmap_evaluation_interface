@@ -1,14 +1,15 @@
-from Codes.dsa20220429_115407 import SyncMapX
+from Codes.dsa20220429_121512 import SyncMapX
 
 # ---------------don't revised belowed
 from .GraphWalkTest import GraphWalkTest
 import numpy as np
 import os
 import time
-#import tqdm
+import tqdm
 from multiprocessing import Pool
 import multiprocessing
-
+import warnings
+warnings.simplefilter(action='ignore', category=FutureWarning)
 # ----usable version
 
 
@@ -43,7 +44,8 @@ def normal_test_muti():
     dict_score = {}
     model = SyncMapX(1)
     dict_score['name'] = model.name
-    for problem in problems:
+    for problem in tqdm.tqdm(problems):
+        print(problem)
         start = time.time()
         score = []
         problem_path_whole = [problem_path+"/"+problem]
@@ -56,7 +58,8 @@ def normal_test_muti():
 
     problem_path = "service/dynamic"
     problems = os.listdir(problem_path)
-    for problem in problems:
+    for problem in tqdm.tqdm(problems):
+        print(problem)
         start = time.time()
         score = []
         problem_now = problem_path+"/"+problem

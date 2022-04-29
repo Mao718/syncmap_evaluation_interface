@@ -52,7 +52,7 @@ def revised_code(testing_code: str, author: schemas.code_author):
 def test():
 
     import service.testing as testing
-    return json.dumps(testing.normal_test_muti(), default=dumper, indent=2)
+    return json.dumps(testing.normal_test_muti())
 
 
 def testing_package(author: schemas.code_author, db: Session):

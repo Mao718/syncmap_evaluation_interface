@@ -8,6 +8,7 @@ from configs.database import get_db
 from configs.database import get_db
 import json
 
+
 routers = APIRouter()
 
 # first version
@@ -20,7 +21,6 @@ def evaluation(author: str, dynamic: str, discription: str, file: bytes = File(.
         author=author, discription=discription, dynamic=dynamic)
     author = service.code_upload(author_model, file)
     service.revised_code(author.file_path, author)
-    score = service.test()
     try:
         score = service.test()
     except:
