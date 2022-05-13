@@ -1,4 +1,4 @@
-from Codes.dsa20220429_121512 import SyncMapX
+from Codes.syncmap20220502_122526 import SyncMapX
 
 # ---------------don't revised belowed
 from .GraphWalkTest import GraphWalkTest
@@ -79,8 +79,8 @@ def mutiprocess_work_dynamic(problem_now):
     for dynamic in dynamics:
         task = GraphWalkTest(10, problem_now+"/"+dynamic)
         model = SyncMapX(task.getOutputSize())
-        for i in range(1000):  #
-            seq = task.getSequence(10000)
+        for i in range(100):  #
+            seq = task.getSequence(100000)
             model.input(seq[0])
     return task.evaluation(model.organize())
 
@@ -93,10 +93,10 @@ def mutiprocess_dynamic(problem_path, repeat):
 
 
 def mutiprocess_work_normal(problem_path):
-    task = GraphWalkTest(10, problem_path)
+    task = GraphWalkTest(100, problem_path)
     model = SyncMapX(task.getOutputSize())
-    for i in range(1000):
-        seq = task.getSequence(10000)
+    for i in range(10):
+        seq = task.getSequence(100000)
         model.input(seq[0])
     return task.evaluation(model.organize())
 
